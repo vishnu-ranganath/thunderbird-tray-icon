@@ -5,5 +5,10 @@ project(
   license_files: 'LICENSE',
   default_options: ['cpp_std=c++17']
 )
+
 gtkdep = dependency('gtkmm-3.0')
-executable('demo', ['main.cpp', 'tokenizer.cpp'], dependencies: gtkdep)
+
+inc = include_directories('include')
+
+subdir('include')
+subdir('src')
