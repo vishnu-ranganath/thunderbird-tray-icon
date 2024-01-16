@@ -6,4 +6,4 @@ project(
   default_options: ['cpp_std=c++17']
 )
 gtkdep = dependency('gtkmm-3.0')
-executable('demo', 'main.cpp', dependencies: gtkdep)
+executable('demo', ['main.cpp', 'tokenizer.cpp'], dependencies: gtkdep)

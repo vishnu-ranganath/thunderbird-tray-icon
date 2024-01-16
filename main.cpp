@@ -1,7 +1,8 @@
 // #include <gtkmm-3.0/gtkmm/application.h>
-#include <main.hpp>
 #include <iostream>
-#include <string>
+#include <main.hpp>
+
+#include "tokenizer.hpp"
 
 MyWindow::MyWindow() {
     set_title("Basic application");
@@ -17,9 +18,9 @@ int main(int argc, char** argv) {
 */
 
 int main(int argc, char** argv) {
-    std::string next_token;
-    while(std::cin >> next_token) {
-        std::cout << next_token << std::endl;
+    Tokenizer::init(std::cin);
+    while(Tokenizer::has_next_token()) {
+        std::cout << Tokenizer::get_token() << std::endl;
     }
     return 0;
 }
