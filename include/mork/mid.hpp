@@ -1,15 +1,16 @@
 #pragma once
 
+#include <variant>
+
 #include "hex.hpp"
 #include "name.hpp"
 
-union MidScope {
-    Hex hex;
-    Name name;
-};
-
+namespace Mork {
 class Mid {
     public:
+        static Mid parse();
+
         Hex id;
-        MidScope scope;
+        std::variant<Hex, Name> scope;
 };
+} //namespace Mork

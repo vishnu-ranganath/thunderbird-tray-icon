@@ -3,19 +3,14 @@
 #include "mid.hpp"
 #include "name.hpp"
 #include "value.hpp"
+#include <variant>
 
-union CellKey {
-    Mid mid;
-    Name name;
-};
-
-union CellValue {
-    Value value;
-    Mid mid;
-};
-
+namespace Mork {
 class Cell {
     public:
-        CellKey key;
-        CellValue val;
+        static Cell parse();
+
+        std::variant<Mid, Name> key;
+        std::variant<Value, Mid> val;
 };
+} //namespace Mork

@@ -3,6 +3,7 @@
 #include <main.hpp>
 
 #include "tokenizer.hpp"
+#include "mork/file.hpp"
 
 MyWindow::MyWindow() {
     set_title("Basic application");
@@ -22,5 +23,6 @@ int main(int argc, char** argv) {
     while(Tokenizer::has_next_token()) {
         std::cout << Tokenizer::get_token() << std::endl;
     }
+    Mork::File f;
     return 0;
 }
