@@ -2,7 +2,7 @@ module Main where
 
 import System.IO (readFile')
 import Control.Monad (mapM_)
-import Tokenizer (getTokens)
+import Tokenizer (tokenize)
 
 main :: IO ()
 {-
@@ -15,5 +15,5 @@ main = do
 main = getLine
     >>= readFile'
     >>= \ x -> mapM_
-        putStrLn
-        (getTokens (lines x ))
+        print
+        (tokenize x)
